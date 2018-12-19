@@ -1,4 +1,4 @@
-plot1 <- function (x, which = c(1:2), main = "distributions of pointwise marginal effects", 
+plotci <- function (x, which = c(1:2), main = "distributions of pointwise marginal effects", 
     setx = "mean", ask = prod(par("mfcol")) < nplots, nvalues = 50, 
     probs = c(0.25, 0.75), ...) 
 {
@@ -75,8 +75,8 @@ plot1 <- function (x, which = c(1:2), main = "distributions of pointwise margina
             pout <- predict(x, newdata = Newdata, se = TRUE)
             Ylo <- pout$fit - 1.96 * pout$se
             Yhi <- pout$fit + 1.96 * pout$se
-            plot(y = pout$fit, x = Xi, xlab = colnames(x$X)[i], 
-                ylab = c("E[Y|X]"), ylim = c(min(Ylo) - 0.25 * 
+            plot(y = pout$fit, x = Xi, xlab = c(colnames(x$X)[i],"(standardized)"), 
+                ylab = c("LFT (marginal effect)"), ylim = c(min(Ylo) - 0.25 * 
                   sqrt(var(pout$fit)), max(Yhi)) + 0.25 * sqrt(var(pout$fit)), 
                 pch = 19)
 			lines(Xi, Ylo)

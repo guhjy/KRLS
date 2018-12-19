@@ -76,7 +76,7 @@ plotci <- function (x, which = c(1:2), main = "distributions of pointwise margin
             Ylo <- pout$fit - 1.96 * pout$se
             Yhi <- pout$fit + 1.96 * pout$se
             plot(y = pout$fit, x = Xi, xlab = c(colnames(x$X)[i],"(standardized)"), 
-                ylab = c("LFT (marginal effect)"), ylim = c(min(Ylo) - 0.25 * 
+                ylab = c("Standardized LFT (marginal effect)"), ylim = c(min(Ylo) - 0.25 * 
                   sqrt(var(pout$fit)), max(Yhi)) + 0.25 * sqrt(var(pout$fit)), 
                 pch = 19)
 			lines(Xi, Ylo)

@@ -75,7 +75,7 @@ plotcin <- function (x, which = c(1:2), main = "distributions of pointwise margi
             pout <- predict(x, newdata = Newdata, se = TRUE)
             Ylo <- pout$fit - 1.96 * pout$se
             Yhi <- pout$fit + 1.96 * pout$se
-            plot(y = pout$fit, x = Xi, xlab = expression('Standardized C'["in"]), 
+            plot(y = pout$fit, x = Xi, xlab = expression('C'["in"]), 
                 ylab = c("Standardized LFT (marginal effect)"), ylim = c(min(Ylo) - 0.25 * 
                   sqrt(var(pout$fit)), max(Yhi)) + 0.25 * sqrt(var(pout$fit)), 
                 pch = 19)
